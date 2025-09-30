@@ -34,10 +34,17 @@ while (true)
                 break;
             case Command.Kill:
                 var processes2 = Process.GetProcessesByName(command.Param!);
-                foreach (var proc in processes2)
+                if (processes2.Length > 0)
                 {
-                    proc.Kill();
-                    bw.Write($"{command.Param} killed");
+                    foreach (var proc in processes2)
+                    {
+                        proc.Kill();
+                        bw.Write($"{command.Param} killed");
+                    }
+                }
+                else
+                {
+                    bw.Write("Process not found");
                 }
                 break;
         }
