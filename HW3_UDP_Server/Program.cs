@@ -39,7 +39,7 @@ while (true)
                     foreach (var proc in processes2)
                     {
                         proc.Kill();
-                        bw.Write($"{command.Param} killed");
+                        bw.Write($"{proc.ProcessName} killed");
                     }
                 }
                 else
